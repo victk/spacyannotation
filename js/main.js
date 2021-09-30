@@ -63,7 +63,8 @@ function prepareJSONData(){
 	var JSONOutContents = $("#JSON-out").text();
 	JSONOutContents = JSONOutContents.substring(0, JSONOutContents.length - 1);
 	var annotationSentence = $(".raw-data-row:first-child").html();
-	var JSONData = "(\""+annotationSentence+"\",{\"entities\":["+JSONOutContents+"]}),";
+	// var JSONData = "(\""+annotationSentence+"\",{\"entities\":["+JSONOutContents+"]}),";
+	var JSONData = "&lt;aspectTerm "+JSONOutContents+"\"\/&gt;"
 	return(JSONData);
 }
 
@@ -90,7 +91,8 @@ $(document).ready(function(){
 		var entityStartPosition = caretPos - entityTextLength;
 		var entityEndPosition = caretPos
 		console.log(entityText,(entityStartPosition+1),entityEndPosition);
-		$("#JSON-out").append("<div data-entity-id-JSON = '"+entityID+"' class='entity-JSON' style='background-color:"+this.style.backgroundColor+"'>("+(entityStartPosition)+","+entityEndPosition+",\""+entityType+"\"),<div data-entity-id-jsonx = '"+entityID+"' class='JSONdelete'>x</div></div>");
+		// $("#JSON-out").append("<div data-entity-id-JSON = '"+entityID+"' class='entity-JSON' style='background-color:"+this.style.backgroundColor+"'>("+(entityStartPosition)+","+entityEndPosition+",\""+entityType+"\"),<div data-entity-id-jsonx = '"+entityID+"' class='JSONdelete'>x</div></div>");
+		$("#JSON-out").append("<div data-entity-id-JSON = '"+entityID+"' class='entity-JSON' style='background-color:"+this.style.backgroundColor+"'>term=\""+entityType+"\" from=\""+(entityStartPosition)+"\" to=\""+entityEndPosition+"\"<div data-entity-id-jsonx = '"+entityID+"' class='JSONdelete'>x</div></div>");
 	});
 	$(document).on("dblclick","#ner-div",function(){
 		removeEntity($(this).data("entity-id-marked"));
