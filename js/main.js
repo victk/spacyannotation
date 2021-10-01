@@ -92,7 +92,7 @@ $(document).ready(function(){
 		var entityEndPosition = caretPos
 		console.log(entityText,(entityStartPosition+1),entityEndPosition);
 		// $("#JSON-out").append("<div data-entity-id-JSON = '"+entityID+"' class='entity-JSON' style='background-color:"+this.style.backgroundColor+"'>("+(entityStartPosition)+","+entityEndPosition+",\""+entityType+"\"),<div data-entity-id-jsonx = '"+entityID+"' class='JSONdelete'>x</div></div>");
-		$("#JSON-out").append("<div data-entity-id-JSON = '"+entityID+"' class='entity-JSON' style='background-color:"+this.style.backgroundColor+"'>term=\""+entityType+"\" from=\""+(entityStartPosition)+"\" to=\""+entityEndPosition+"\"<div data-entity-id-jsonx = '"+entityID+"' class='JSONdelete'>x</div></div>");
+		$("#JSON-out").append("<div data-entity-id-JSON = '"+entityID+"' class='entity-JSON' style='background-color:"+this.style.backgroundColor+"'>term=\""+entityText+"\" from=\""+(entityStartPosition)+"\" to=\""+entityEndPosition+"\"<div data-entity-id-jsonx = '"+entityID+"' class='JSONdelete'>x</div></div>");
 	});
 	$(document).on("dblclick","#ner-div",function(){
 		removeEntity($(this).data("entity-id-marked"));
